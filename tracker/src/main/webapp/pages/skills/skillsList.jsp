@@ -6,25 +6,33 @@
 <title>Skills</title>
 </head>
 <body>
-<jsp:include page="../navigation/navbar.jsp" />	
+	<jsp:include page="../navigation/navbar.jsp" />
 
-	<div>
-		<h1>Skills</h1>
-	</div>
-	<div class="col-9">
-		<button class="btn btn-primary">Add</button>
-		<table class="table" style="margin-top: 20px">
-			<tr>
-				<th>Name</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-			<tr>
-				<td></td>
-				<td><button class="btn btn-success">Edit</button></td>
-				<td><button class="btn btn-danger">Delete</button></td>
-			</tr>
-		</table>
+	<div class="tabMain container-fluid">
+		<div>
+			<h1>Skills</h1>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<button class="btnAdd">Add skill &nbsp;</button>
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="col-lg-10 col-sm-8">Name</th>
+							<th class="col-lg-1 col-sm-2">Edit</th>
+							<th class="col-lg-1 col-sm-2">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="col-lg-10 col-sm-8"></td>
+							<td class="col-lg-1 col-sm-2"><button class="btnE"><img src="../resource/edit.png" width="20" height="20"/></button></td>
+							<td class="col-lg-1 col-sm-2"><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
