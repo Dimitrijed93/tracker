@@ -16,8 +16,9 @@ public class TracksController {
 
 	@RequestMapping("tracksList")
 	public String tracks(Model model) {
-//		List<Tracks> listTracks = service.listAll();
-//		model.addAttribute("listTracks", listTracks);
+		List<Tracks> listTracks = service.listAll();
+		model.addAttribute("listTracks", listTracks);
+		
 		return "tracks/tracksList";
 	
 	
