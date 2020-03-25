@@ -117,7 +117,7 @@
 
 <!-- 		END OF DELETE MODAL -->
 		
-	</div>
+	
 	<script>
 	$('#addBtn, #editBtn').on('click', function(e){
 		  $('#addOrEditModal').modal('show');

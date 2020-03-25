@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tracker.tracker.model.Tracks;
-import com.tracker.tracker.service.TracksService;
+import com.tracker.tracker.service.TracksServiceImpl;
 
 @Controller
 public class TracksController {
 	
 	@Autowired
-	private TracksService service;
+	private TracksServiceImpl service;
 
 	@RequestMapping("tracksList")
 	public String tracks(Model model) {
