@@ -1,14 +1,15 @@
-package com.tracker.tracker.model;
+package com.tracker.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-
-@Entity(name="tbltracks")
+@Table(name = "tbltracks")
+@Entity
 public class Tracks {
 
 	@Id

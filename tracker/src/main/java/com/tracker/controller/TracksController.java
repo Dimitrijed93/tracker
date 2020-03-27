@@ -1,4 +1,4 @@
-package com.tracker.tracker.controller;
+package com.tracker.controller;
 
 import java.util.List;
 import org.springframework.beans.BeanUtils;
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.tracker.tracker.dao.TracksDao;
-import com.tracker.tracker.model.Tracks;
+
+import com.tracker.dao.TracksDao;
+import com.tracker.model.Tracks;
 
 @RestController
 @RequestMapping("api/v1/tracks")

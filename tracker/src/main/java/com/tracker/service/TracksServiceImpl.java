@@ -1,12 +1,7 @@
-package com.tracker.tracker.service;
+package com.tracker.service;
 
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.tracker.tracker.dao.TracksDao;
-import com.tracker.tracker.model.Tracks;
 
 @Service
 public class TracksServiceImpl implements TracksService {

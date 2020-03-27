@@ -29,13 +29,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="track:${listTracks}">
-					<td class="col-lg-1 col-sm-1" th:text="${track.id}"></td>
-					<td class="col-lg-4 col-sm-3" th:text="${track.trackName}"></td>
-					<td class="col-lg-3 col-sm-2" th:text="${track.fileFormat}"></td>
-					<td class="col-lg-2 col-sm-2" th:text="${track.duration}"></td>
-					<td class="col-lg-1 col-sm-2"><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></td>
-					<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn"><img src="../resource/del.png" width="20" height="20"/></button></td>
+<%-- 				<tr th:each="track:${listTracks}"> --%>
+<%-- 					<td class="col-lg-1 col-sm-1" th:text="${track.id}"></td> --%>
+<%-- 					<td class="col-lg-4 col-sm-3" th:text="${track.trackName}"></td> --%>
+<%-- 					<td class="col-lg-3 col-sm-2" th:text="${track.fileFormat}"></td> --%>
+<%-- 					<td class="col-lg-2 col-sm-2" th:text="${track.duration}"></td> --%>
+<!-- 					<td class="col-lg-1 col-sm-2"><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></td> -->
+<!-- 					<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn"><img src="../resource/del.png" width="20" height="20"/></button></td> -->
+<!-- 				</tr> -->
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 			</tbody>
 		</table>

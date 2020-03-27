@@ -1,8 +1,6 @@
-package com.tracker.tracker.service;
+package com.tracker.service;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
-import com.tracker.tracker.model.Tracks;
 
 @Service
 public interface TracksService  {
