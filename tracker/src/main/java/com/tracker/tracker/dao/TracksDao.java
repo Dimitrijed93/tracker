@@ -1,10 +1,10 @@
 package com.tracker.tracker.dao;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.tracker.tracker.model.Tracks;
 
-@Repository("TracksDao")
-public interface TracksDao extends CrudRepository<Tracks, Integer>{
-	
-}
+
+public interface TracksDao extends JpaRepository<Tracks, Integer>{
+		
+	}
+

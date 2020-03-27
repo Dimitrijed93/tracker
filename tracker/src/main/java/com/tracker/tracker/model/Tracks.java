@@ -5,11 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
-@Entity
-@Table(name="tbltracks")
+
+@Entity(name="tbltracks")
 public class Tracks {
 
 	@Id
@@ -37,7 +36,7 @@ public class Tracks {
 	}
 
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {
