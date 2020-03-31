@@ -5,20 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SkillsController {
-
+	
+	
 	@RequestMapping("skillsList")
 	public String skills() {
 		
 		return "skills/skillsList";
-	
-	
+
 	}
+
 	
-	@RequestMapping("tracksList")
-	public String tracks() {
-		
-		return "tracks/tracksList";
-	
-	
-	}
 }

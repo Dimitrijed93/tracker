@@ -40,7 +40,7 @@ public class Tracks {
 	}
 
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -48,18 +48,18 @@ public class Tracks {
 	}
 	
 	
-	public String getTrackName() {
+	public String getTrack_name() {
 		return track_name;
 	}
-	public void setTrackName(String track_name) {
+	public void setTrack_name(String track_name) {
 		this.track_name = track_name;
 	}
 	
 	
-	public String getFileFormat() {
+	public String getFile_format() {
 		return file_format;
 	}
-	public void setFileFormat(String file_format) {
+	public void setFile_format(String file_format) {
 		this.file_format = file_format;
 	}
 	
