@@ -13,4 +13,12 @@ public class SkillsController {
 	
 	
 	}
+	
+	@RequestMapping("tracksList")
+	public String tracks() {
+		
+		return "tracks/tracksList";
+	
+	
+	}
 }

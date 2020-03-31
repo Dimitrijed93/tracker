@@ -7,28 +7,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Table(name = "tbltracks")
-@Entity
+@Entity(name = "tbltracks")
+@JsonIgnoreProperties({"hibernateLazyInitializer" , "handler"})
 public class Tracks {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="track name")
-	private String trackName;
-	@Column(name="file format")
-	private String fileFormat;
+	@Column(name="track_name")
+	private String track_name;
+	@Column(name="file_format")
+	private String file_format;
 	@Column(name="duration")
 	private String duration;
 	
 	
-	public Tracks(int id, String trackName, String fileFormat, String duration) {
+	public Tracks(int id, String track_name, String file_format, String duration) {
 
 		this.id = id;
-		this.trackName = trackName;
-		this.fileFormat = fileFormat;
+		this.track_name = track_name;
+		this.file_format = file_format;
 		this.duration = duration;	
 	}
 	
@@ -46,18 +49,18 @@ public class Tracks {
 	
 	
 	public String getTrackName() {
-		return trackName;
+		return track_name;
 	}
-	public void setTrackName(String trackName) {
-		this.trackName = trackName;
+	public void setTrackName(String track_name) {
+		this.track_name = track_name;
 	}
 	
 	
 	public String getFileFormat() {
-		return fileFormat;
+		return file_format;
 	}
-	public void setFileFormat(String fileFormat) {
-		this.fileFormat = fileFormat;
+	public void setFileFormat(String file_format) {
+		this.file_format = file_format;
 	}
 	
 	
