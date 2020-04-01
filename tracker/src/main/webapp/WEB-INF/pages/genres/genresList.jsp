@@ -24,7 +24,7 @@
 					<thead>
 						<tr>
 							<th class="col-lg-5 col-sm-4">Name</th>
-							<th class="col-lg-5 col-sm-4">Subgenre</th>
+							<th class="col-lg-4 col-sm-3">Subgenre</th>
 							<th class="col-lg-1 col-sm-2">Edit</th>
 							<th class="col-lg-1 col-sm-2">Delete</th>
 						</tr>
@@ -33,7 +33,7 @@
 					<c:forEach var="gen" items="${genres}">
 						<tr>
 							<td class="col-lg-5 col-sm-4"> ${gen.name}</td>
-							<td class="col-lg-5 col-sm-4"> ${gen.subgenre_name}</td>
+							<td class="col-lg-4 col-sm-3"> ${gen.subgenre_name}</td>
 							<td class="col-lg-1 col-sm-2"><a href="/edit-genre?id=${gen.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
 							<td class="col-lg-1 col-sm-2"><a href="/delete-genre?id=${gen.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
 						</tr>

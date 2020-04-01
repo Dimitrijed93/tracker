@@ -19,14 +19,14 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th class="col-lg-10 col-sm-8">Name</th>
+							<th class="col-lg-9 col-sm-7">Name</th>
 							<th class="col-lg-1 col-sm-2">Edit</th>
 							<th class="col-lg-1 col-sm-2">Delete</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="col-lg-10 col-sm-8"></td>
+							<td class="col-lg-9 col-sm-7"></td>
 							<td class="col-lg-1 col-sm-2"><button class="btnE" id="editBtn">
 									<img src="../resource/edit.png" width="20" height="20" />
 								</button></td>
