@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix= "c" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -25,6 +26,7 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="skill" items="${skills}">
 						<tr>
 							<td class="col-lg-9 col-sm-7"></td>
 							<td class="col-lg-1 col-sm-2"><button class="btnE" id="editBtn">
@@ -33,7 +35,11 @@
 							<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn">
 									<img src="../resource/del.png" width="20" height="20" />
 								</button></td>
-						</tr>
+							<td class="col-lg-5 col-sm-4"> ${skill.name}</td>
+							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${sklill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
+							<td class="col-lg-1 col-sm-2"><a href="/delete-skill?id=${sklill.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -44,8 +50,7 @@
 
 		<!-- 		ADD OR EDIT MODAL -->
 
-		<div class="modal fade" tabindex="-1" role="dialog"
-			id="addOrEditModal">
+		<div class="modal fade" tabindex="-1" role="dialog" id="addOrEditModal">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -55,22 +60,21 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" name="contact" role="form">
+					<form id="contactForm" method="POST" action="save-skill" role="form">
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
-								<label for="id">Id</label> <input type="text" name="id"
-									class="form-control">
+								<label for="id" hidden="true">Id</label> 
+								<input type="text" name="id" value="${skill.id}" hidden="true" class="form-control">
 							</div>
 							<div class="form-group">
-								<label for="name">Name</label> <input type="text" name="name"
-									class="form-control">
+								<label for="name">Name</label> 
+								<input type="text" name="name" value="${skill.name}" class="form-control">
 							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save
-								changes</button>
+							<button type="submit" class="btn btn-primary">Save changes</button>
 						</div>
 					</form>
 				</div>
@@ -99,7 +103,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Delete</button>
+							<button type="submit" class="btn btn-primary">Delete</button>
 						</div>
 					</form>
 				</div>
