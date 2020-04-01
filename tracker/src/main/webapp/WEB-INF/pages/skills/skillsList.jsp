@@ -19,7 +19,7 @@
 				<button class="btnAdd" id="addBtn">Add skill &nbsp;</button>
 				<table class="table">
 					<thead>
-						<tr>
+						<tr>							
 							<th class="col-lg-9 col-sm-7">Name</th>
 							<th class="col-lg-1 col-sm-2">Edit</th>
 							<th class="col-lg-1 col-sm-2">Delete</th>
@@ -27,18 +27,11 @@
 					</thead>
 					<tbody>
 						<c:forEach var="skill" items="${skills}">
-						<tr>
-							<td class="col-lg-9 col-sm-7"></td>
-							<td class="col-lg-1 col-sm-2"><button class="btnE" id="editBtn">
-									<img src="../resource/edit.png" width="20" height="20" />
-								</button></td>
-							<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn">
-									<img src="../resource/del.png" width="20" height="20" />
-								</button></td>
-							<td class="col-lg-5 col-sm-4"> ${skill.name}</td>
-							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${sklill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-							<td class="col-lg-1 col-sm-2"><a href="/delete-skill?id=${sklill.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
-</tr>
+						<tr>						
+							<td class="col-lg-9 col-sm-7"> ${skill.name}</td>
+							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${skill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
+							<td class="col-lg-1 col-sm-2"><a href="/delete-skill?id=${skill.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+						</tr>
 					</c:forEach>
 					</tbody>
 				</table>

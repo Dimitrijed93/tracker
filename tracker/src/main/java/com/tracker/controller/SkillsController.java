@@ -38,7 +38,7 @@ public class SkillsController {
 	}
 	
 
-	@RequestMapping("/edit-genre")
+	@RequestMapping("/edit-skill")
 	public String edit(@RequestParam int id,Skills skills, HttpServletRequest request) {
 		request.setAttribute("skills", skillsService.update(id, skills));
 		return "redirect:skillsList";
