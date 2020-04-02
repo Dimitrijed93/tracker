@@ -30,7 +30,7 @@
 						<tr>						
 							<td class="col-lg-9 col-sm-7"> ${skill.name}</td>
 							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${skill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-							<td class="col-lg-1 col-sm-2"><a href="/delete-skill?id=${skill.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+							<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn"><img src="../resource/del.png" width="20" height="20"/></button></td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -91,12 +91,12 @@
 					<form id="contactForm" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
-							<h3>Name of skill</h3>
+							<h3> ${skill.name}</h3>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Delete</button>
+							<a href="/delete-skill?id=${skill.id}" ><button type="submit" class="btn btn-primary">Delete</button></a>
 						</div>
 					</form>
 				</div>
