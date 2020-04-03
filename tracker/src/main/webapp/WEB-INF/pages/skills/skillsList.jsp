@@ -88,7 +88,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" name="contact" role="form">
+					<form id="contactForm"  action="delete-skill" method="post" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
 							<h3> ${skill.name}</h3>
@@ -96,7 +96,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<a href="/delete-skill?id=${skill.id}" ><button type="submit" class="btn btn-primary">Delete</button></a>
+							<a href="/delete-skill?id=${skill.id}" ><button type="submit" value="${skill.id}" class="btn btn-primary">Delete</button></a>
 						</div>
 					</form>
 				</div>
@@ -112,7 +112,7 @@
 			e.preventDefault();
 		});
 
-		$('#deleteBtn').on('click', function(e) {
+		$('.btnD').on('click', function(e) {
 			$('#deleteModal').modal('show');
 			e.preventDefault();
 		});

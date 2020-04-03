@@ -37,7 +37,7 @@
 					<td class="col-lg-3 col-sm-2"> ${track.file_format} </td>
 					<td class="col-lg-2 col-sm-2"> ${track.duration} </td>
 					<td class="col-lg-1 col-sm-2"><a href="/edit-track?id=${track.id}" ><button class="btnE editBtn" value="${track.id}"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-					<td class="col-lg-1 col-sm-2"><a href="/delete-track?id=${track.id}" ><button type="button" class="btnD"  ><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+					<td class="col-lg-1 col-sm-2"><button type="button" class="btnD" value="${track.id}" ><img src="../resource/del.png" width="20" height="20"/></button></td>
 				</tr>
 			</c:forEach>
 			</tbody>
@@ -88,6 +88,10 @@
 			</div>
 		</div>
 		
+		
+		
+		
+		
 <!-- 		END OF ADD OR EDIT MODAL -->
 
 <!-- 		DELETE MODAL -->
@@ -102,7 +106,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" name="contact" role="form">
+					<form id="contactForm"  method="GET" action="tracksList/{id}" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following genre?</p>
 							<h3>Name of track</h3>
@@ -112,7 +116,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Delete</button>
+							<a href="/delete-track?id=${track.id}" ><button type="button" class=" btn btn-primary" >Delete</button></a>
 						</div>
 					</form>
 				</div>
@@ -129,7 +133,7 @@
 		  e.preventDefault();
 		});
 	
-	 $('#deleteBtn').on('click', function(e){
+	 $('.btnD').on('click', function(e){
 		  $('#deleteModal').modal('show');
 		  e.preventDefault();
 		});
