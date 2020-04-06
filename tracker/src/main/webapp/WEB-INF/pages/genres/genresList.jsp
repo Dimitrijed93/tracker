@@ -34,8 +34,16 @@
 						<tr>
 							<td class="col-lg-5 col-sm-4"> ${gen.name}</td>
 							<td class="col-lg-4 col-sm-3"> ${gen.subgenre_name}</td>
-							<td class="col-lg-1 col-sm-2"><a href="/edit-genre?id=${gen.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-							<td class="col-lg-1 col-sm-2"><a href="/delete-genre?id=${gen.id}" ><button class="btnD"><img src="../resource/del.png" width="20" height="20"/></button></a></td>
+							<td class="col-lg-1 col-sm-2"><a href="/edit-genre?id=${gen.id}" >
+								<button class="btnE" id="editBtn">
+									<img src="../resource/edit.png" width="20" height="20"/>
+								</button></a>
+							</td>
+							<td class="col-lg-1 col-sm-2">
+								<button type="submit" class="btnD" value="${gen.id}">
+									<img src="../resource/del.png" width="20" height="20"/>
+								</button><input type="hidden" id="id" value="${gen.id}">
+							</td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -96,15 +104,15 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" name="contact" role="form">
+					<form id="contactForm" action="delete-genre" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following genre?</p>
-							<h3>Name of genre</h3>
+							
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Delete</button>
+							<button type="submit" name="id" id="id" value="${gen.id}" class="btn btn-primary">Delete</button>
 						</div>
 					</form>
 				</div>
@@ -120,10 +128,17 @@
 		  e.preventDefault();
 		});
 
-	$('#deleteBtn').on('click', function(e){
+	$('.btnD').on('click', function(e){
 		  $('#deleteModal').modal('show');
 		  e.preventDefault();
 		});
+
+	$(document).ready(function(){
+		$('table .btnD').on('click', function(){
+			var id = $(this).parent().find('.btnD').val();
+			$('#deleteModal #id').val(id);
+		})
+	 });
 	</script>
 </body>
 </html>

@@ -31,6 +31,7 @@ public class TracksController {
 	@RequestMapping("/delete-track")
 	public String delete(@RequestParam int id, HttpServletRequest request) {
 		trackService.delete(id);
+		request.setAttribute("tracks", trackService.listAll());
 		return "redirect:tracksList";
 	}
 	
@@ -61,4 +62,3 @@ public class TracksController {
 	
 	
 	}
-

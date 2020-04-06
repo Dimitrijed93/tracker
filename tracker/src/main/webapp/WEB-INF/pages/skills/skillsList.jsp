@@ -29,8 +29,16 @@
 						<c:forEach var="skill" items="${skills}">
 						<tr>						
 							<td class="col-lg-9 col-sm-7"> ${skill.name}</td>
-							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${skill.id}" ><button class="btnE" id="editBtn"><img src="../resource/edit.png" width="20" height="20"/></button></a></td>
-							<td class="col-lg-1 col-sm-2"><button class="btnD" id="deleteBtn"><img src="../resource/del.png" width="20" height="20"/></button></td>
+							<td class="col-lg-1 col-sm-2"><a href="/edit-skill?id=${skill.id}" >
+								<button class="btnE" id="editBtn">
+									<img src="../resource/edit.png" width="20" height="20"/>
+								</button></a>
+							</td>
+							<td class="col-lg-1 col-sm-2">
+								<button type="submit" class="btnD" value="${skill.id}" id="deleteBtn">
+									<img src="../resource/del.png" width="20" height="20"/>
+								</button><input type="hidden" id="id" value="${skill.id}">
+							</td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -88,7 +96,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm"  action="delete-skill" method="post" name="contact" role="form">
+					<form id="contactForm"  action="delete-skill" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
 							<h3> ${skill.name}</h3>
@@ -96,7 +104,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<a href="/delete-skill?id=${skill.id}" ><button type="submit" value="${skill.id}" class="btn btn-primary">Delete</button></a>
+							<button type="submit" name="id" id="id" value="${skill.id}" class="btn btn-primary">Delete</button>
 						</div>
 					</form>
 				</div>
@@ -116,6 +124,14 @@
 			$('#deleteModal').modal('show');
 			e.preventDefault();
 		});
+
+		$(document).ready(function(){
+			$('table .btnD').on('click', function(){
+				var id = $(this).parent().find('.btnD').val();
+				$('#deleteModal #id').val(id);
+			})
+		 });
+			
 	</script>
 	
 </body>
