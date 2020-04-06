@@ -34,10 +34,10 @@
 						<tr>
 							<td class="col-lg-5 col-sm-4"> ${gen.name}</td>
 							<td class="col-lg-4 col-sm-3"> ${gen.subgenre_name}</td>
-							<td class="col-lg-1 col-sm-2"><a href="/edit-genre?id=${gen.id}" >
-								<button class="btnE" id="editBtn">
+							<td class="col-lg-1 col-sm-2">
+								<button class="btnE" id="editBtn" value="${gen.id}">
 									<img src="../resource/edit.png" width="20" height="20"/>
-								</button></a>
+								</button>
 							</td>
 							<td class="col-lg-1 col-sm-2">
 								<button type="submit" class="btnD" value="${gen.id}">
@@ -69,21 +69,21 @@
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
 								<label for="id" hidden="true">Id</label> 
-								<input type="text" name="id" value="${gen.id}" hidden="true" class="form-control">
+								<input type="text" id="id" name="id"  hidden="true" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="name">Name</label> 
-								<input type="text" name="name" value="${gen.name}" class="form-control">
+								<input type="text" id="name" name="name" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="subgenre_name">Subgenre</label> 
-								<input type="text" name="subgenre_name" value="${gen.subgenre_name}" class="form-control">
+								<input type="text" id="subgenre_name" name="subgenre_name"  class="form-control">
 							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Save changes</button>
+							<button type="submit" id="id" name= "id" class="btn btn-primary">Save changes</button>
 						</div>
 					</form>
 				</div>
@@ -123,20 +123,36 @@
 		
 	</div>
 	<script>
-	$('#addBtn, #editBtn').on('click', function(e){
+	$('#addBtn, .btnE').on('click', function(e){
 		  $('#addOrEditModal').modal('show');
-		  e.preventDefault();
-		});
+			$('#addOrEditModal').on('hidden.bs.modal', function () {
+			    $('#addOrEditModal form')[0].reset();
+			});			
+	});
 
 	$('.btnD').on('click', function(e){
 		  $('#deleteModal').modal('show');
-		  e.preventDefault();
+		
 		});
 
 	$(document).ready(function(){
 		$('table .btnD').on('click', function(){
 			var id = $(this).parent().find('.btnD').val();
 			$('#deleteModal #id').val(id);
+		})
+
+		$('table .btnE').on('click', function(){
+			var id = $(this).parent().find('.btnE').val();
+			$.ajax({
+				type:'GET',
+				url:"genresList/" + id,
+				success: function(gen){
+					$('#addOrEditModal #id').val(gen.id);
+					$('#addOrEditModal #name').val(gen.name);
+					$('#addOrEditModal #subgenre_name').val(gen.subgenre_name);
+					}
+				});
+				
 		})
 	 });
 	</script>

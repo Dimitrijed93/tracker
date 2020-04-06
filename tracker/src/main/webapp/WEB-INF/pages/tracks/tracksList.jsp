@@ -37,11 +37,9 @@
 						<td class="col-lg-3 col-sm-2">${track.file_format}</td>
 						<td class="col-lg-2 col-sm-2">${track.duration}</td>
 						<td class="col-lg-1 col-sm-2">
-							<a href="/tracksList/${track.id}">
-								<button class="btnE editBtn" value="${track.id}">
-									<img src="../resource/edit.png" width="20" height="20" />
-								</button>
-							</a>
+							<button class="btnE editBtn" value="${track.id}">
+								<img src="../resource/edit.png" width="20" height="20" />
+							</button>					
 						</td>
 						<td class="col-lg-1 col-sm-2">
 							<button type="submit" class="btnD" value="${track.id}">
@@ -71,27 +69,26 @@
 				<form id="contactForm" method="POST" action="save-track">
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="id" hidden="true">Id</label> <input hidden="true"
-								type="number" name="id" value="${track.id}" class="form-control">
+							<label for="id" hidden="true">Id</label> 
+							<input hidden="true" type="number" id="id" name="id" class="form-control">
 						</div>
 						<div class="form-group">
-							<label for="name">Name</label> <input type="text"
-								name="track_name" value="${track.track_name}"
-								class="form-control">
+							<label for="name">Name</label> 
+							<input type="text" id="track_name" name="track_name" class="form-control">
 						</div>
 						<div class="form-group">
-							<label for="format">Format</label> <input type="text"
-								name="file_format" value="" class="form-control">
+							<label for="format">Format</label> 
+							<input type="text" id="file_format" name="file_format" class="form-control">
 						</div>
 						<div class="form-group">
-							<label for="duration">Duration</label> <input type="text"
-								name="duration" value="${track.duration}" class="form-control">
+							<label for="duration">Duration</label> 
+							<input type="text" id="duration" name="duration" class="form-control">
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
-						<input type="submit" class="btn btn-primary" value="Save changes" />
+						<button type="submit" id="id" name= "id" class="btn btn-primary">Save changes</button>
 					</div>
 				</form>
 			</div>
@@ -132,10 +129,13 @@
 
 	<script>
 	
-	 $('.btnAdd ').on('click', function(e){
+	 $('.btnAdd, .btnE ').on('click', function(e){
 		  $('#addOrEditModal').modal('show');
-		  
+			$('#addOrEditModal').on('hidden.bs.modal', function () {
+			    $('#addOrEditModal form')[0].reset();
+			    });		
 		});
+		  
 	
 	 $('.btnD').on('click', function(e){
 		  $('#deleteModal').modal('show');
@@ -145,6 +145,20 @@
 		$('table .btnD').on('click', function(){
 			var id = $(this).parent().find('.btnD').val();
 			$('#deleteModal #id').val(id);
+		})
+		$('table .btnE').on('click', function(){
+			var id = $(this).parent().find('.btnE').val();
+			$.ajax({
+				type:'GET',
+				url:"tracksList/" + id,
+				success: function(track){
+					$('#addOrEditModal #id').val(track.id);
+					$('#addOrEditModal #track_name').val(track.track_name);
+					$('#addOrEditModal #file_format').val(track.file_format);
+					$('#addOrEditModal #duration').val(track.duration);
+					}
+				});
+				
 		})
 	 });
 
