@@ -8,20 +8,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Table(name = "tblusers")
-@Entity(name = "tblusers")
+@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer" , "handler"})
-public class Users {
+public class Users{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
 	@Column(name="username")
 	private String username;
 	@Column(name="password")
-	private String paswword;
+	private String password;
 	@Column(name="firstname")
 	private String firstname;
 	@Column(name="lastname")
@@ -37,14 +38,25 @@ public class Users {
 	}
 
 
-	public Users(String username, String paswword, String firstname, String lastname, Date dateofbirth, String email) {
-	
+	public Users(int id, String username, String password, String firstname, String lastname, Date dateofbirth, String email) {
+		
+		this.id = id;
 		this.username = username;
-		this.paswword = paswword;
+		this.password = password;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.dateofbirth = dateofbirth;
 		this.email = email;
+	}
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -58,13 +70,13 @@ public class Users {
 	}
 
 
-	public String getPaswword() {
-		return paswword;
+	public String getPassword() {
+		return password;
 	}
 
 
-	public void setPaswword(String paswword) {
-		this.paswword = paswword;
+	public void setPassword(String paswword) {
+		this.password = paswword;
 	}
 
 
@@ -106,10 +118,6 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
-	
 	
 	
 	
