@@ -10,6 +10,10 @@ public interface RegisterService {
 	
 	Users findByUsername(String username);
 	
+	Users findByEmail(String email);
+	
+	Users findByPassword(String password);
+	
 	String findLoggedInUsername();
 	
 	void autoLogin(String username, String password);

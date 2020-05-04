@@ -28,4 +28,11 @@ public class HomeController {
 	public String register() {
 		return "login/register";
 	}
+	
+	@RequestMapping("/resetpass")
+	public String resetpass() {
+		return "login/resetpass";
+	}
+	
+	
 }

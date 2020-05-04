@@ -38,6 +38,16 @@ public class RegisterServiceImpl implements RegisterService {
 	public Users findByUsername(String username) {
 		return userDao.findByUsername(username);
 	}
+	
+	@Override
+	public Users findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
+	
+	@Override
+	public Users findByPassword(String password) {
+		return userDao.findByPassword(password);
+	}
 
 
 	@Override
