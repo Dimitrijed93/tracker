@@ -16,5 +16,7 @@ public interface RegisterService {
 	
 	String findLoggedInUsername();
 	
+	public Users get(Integer id);
+	
 	void autoLogin(String username, String password);
 }

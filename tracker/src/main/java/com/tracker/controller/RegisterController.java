@@ -1,7 +1,12 @@
 package com.tracker.controller;
 
 import javax.servlet.http.HttpServletRequest;
+//import java.io.IOException;
+//import javax.servlet.RequestDispatcher;
+//import javax.servlet.ServletException;
+//import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 //import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -46,24 +51,38 @@ public class RegisterController {
 		return "redirect:home";
 	}
 	
+	@RequestMapping ("users/{id}")
+	public ResponseEntity<Users> get(@PathVariable Integer id) {
+		Users user = registerService.get(id);	
+			if (user==null) {
+				return ResponseEntity.notFound().build() ;
+		}
+			return ResponseEntity.ok().body(user);
+	}
+	
 	
 	@RequestMapping ("/reset-password/{email}")
-	public String findByEmail(@PathVariable String email) {
+	public String findByEmail(@PathVariable String email )  {
+		
+//		request.setAttribute("email", email);
+//		RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
+//		rd.forward(request, response);
+		
 		Users user = registerService.findByEmail(email);	
 			if (user==null) {
-				return "Email doesn't excist!" ;
+				return "login/login" ;
 		}
 			SimpleMailMessage message = new SimpleMailMessage();
 			message.setTo(user.getEmail());
 			message.setSubject("Reset password");
-			message.setText("Click on the link to reset your password! http://localhost:8080/tracker/reset-password/" + user.getPassword());
+			message.setText("Click on the link to reset your password! http://localhost:8080/tracker/reset-password2/" + user.getPassword());
 			javaMailSender.send(message);
-			
-			return "Message sent successufully";
+	
+			return "login/login";
 	}
 	
-	@RequestMapping("/reset-password/new/{password}")
-	public String resetpass(@PathVariable String password) {
+	@RequestMapping("/reset-password2/{password}")
+	public String resetpas(@PathVariable String password ){
 	
 		return "login/resetpass2";
 	}

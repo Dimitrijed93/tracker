@@ -12,14 +12,18 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
 	<script src="../../tracker/js/parsley.min.js"></script>	
 	<link rel="stylesheet"  href="../../tracker/css/parsley.css">
-	<title>Create a new account</title>
+	<title>Reset password</title>
 </head>
 <body>
 	<div class="regDiv">
-		<h2>Create a new account</h2>
+		<h2>Update your password!</h2>
 		<hr>
 		<form data-parsley-validate="" class="contactForm" id="contactForm" method="POST" action="save-user" role="form">
 			<div class="modal-body">
+				<div class="form-group">
+					<label hidden="true" for="id">id:</label> 
+					<input hidden="true" type="number" id="id" name="id" class="form-control">
+				</div>
 				<div class="form-group">
 					<label hidden="true" for="username">Username:</label> 
 					<input hidden="true" type="text" id="username" name="username" class="form-control">
@@ -80,6 +84,24 @@
 			    	bttn.prop('disabled', false);
 			    }
 			});
+
+		$(document).ready(function(){
+// 				var id = ;
+				$.ajax({
+					type:'GET',
+					url:"users/37"
+					success: function(us){
+						$('#id').val(us.id);
+						$('#username').val(us.username);
+						$('#password').val(us.password);
+						$('#password2').val();
+						$('#firstname').val(us.firstname);
+						$('#lastname').val(us.lastname);
+						$('#dateofbirth').val(us.dateofbirth);
+						$('#email').val(us.email);
+						}
+					});
+		 });
 
 
 		

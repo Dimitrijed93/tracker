@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix= "c" %>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +22,7 @@
 	<h6 class="logoutTxt">Enter your email address and we'll send you a link</h6>
 	<h6 class="logoutTxt"> to reset your password.</h6>
 	<hr>
-		<form class="contactForm" id="contactForm" method="POST" action= "/reset-password/" role="form">
+		<form class="contactForm" id="contactForm" method="POST" action= "" role="form">
 			<div class="modal-body">
 				<div class="form-group">
 					<label for="username">Email address:</label> 
@@ -36,6 +37,22 @@
 	</div>
 	
 <script>
+
+$(document).ready(function(){
+	
+	$('.subBtn').on('click', function(){
+		var mail = $('#email').val();
+		console.log(mail);
+		$.ajax({
+			type:'POST',
+			url:"reset-password/" + mail,
+			success: function(){
+				alert("Please check your email !");
+				}
+			});
+			
+	})
+ });
 
 </script>
 	
