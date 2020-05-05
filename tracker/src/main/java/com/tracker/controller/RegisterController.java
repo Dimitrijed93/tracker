@@ -62,26 +62,22 @@ public class RegisterController {
 	
 	
 	@RequestMapping ("/reset-password/{email}")
-	public String findByEmail(@PathVariable String email )  {
-		
-//		request.setAttribute("email", email);
-//		RequestDispatcher rd = request.getRequestDispatcher("resetpass.jsp");
-//		rd.forward(request, response);
-		
+	public String findByEmail(@PathVariable String email)  {
+				
 		Users user = registerService.findByEmail(email);	
 			if (user==null) {
 				return "login/login" ;
-		}
+		}			
 			SimpleMailMessage message = new SimpleMailMessage();
 			message.setTo(user.getEmail());
 			message.setSubject("Reset password");
-			message.setText("Click on the link to reset your password! http://localhost:8080/tracker/reset-password2/" + user.getPassword());
+			message.setText("Click on the link to reset your password! http://localhost:8080/tracker/reset-password2/" + user.getPassword() +"/" + user.getId());
 			javaMailSender.send(message);
 	
 			return "login/login";
 	}
 	
-	@RequestMapping("/reset-password2/{password}")
+	@RequestMapping("/reset-password2/{password}/{id}")
 	public String resetpas(@PathVariable String password ){
 	
 		return "login/resetpass2";

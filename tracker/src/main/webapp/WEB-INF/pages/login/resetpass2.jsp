@@ -86,10 +86,12 @@
 			});
 
 		$(document).ready(function(){
-// 				var id = ;
+			var url = window.location.href;
+			var id = url.substring(url.lastIndexOf('/') + 1);
+			console.log(id);
 				$.ajax({
 					type:'GET',
-					url:"users/37"
+					url:"users/" + id,
 					success: function(us){
 						$('#id').val(us.id);
 						$('#username').val(us.username);
