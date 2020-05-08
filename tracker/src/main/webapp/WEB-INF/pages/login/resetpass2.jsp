@@ -96,7 +96,6 @@
 						$('#id').val(us.id);
 						$('#username').val(us.username);
 						$('#password').val(us.password);
-						$('#password2').val();
 						$('#firstname').val(us.firstname);
 						$('#lastname').val(us.lastname);
 						$('#dateofbirth').val(us.dateofbirth);

@@ -1,5 +1,6 @@
 package com.tracker.service;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import com.tracker.model.Users;
 
@@ -14,7 +15,7 @@ public interface RegisterService {
 	
 	Users findByPassword(String password);
 	
-	String findLoggedInUsername();
+	UserDetails findLoggedInUsername();
 	
 	public Users get(Integer id);
 	

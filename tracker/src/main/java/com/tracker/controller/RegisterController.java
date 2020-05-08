@@ -47,7 +47,7 @@ public class RegisterController {
 			return "redirect:register";
 		}
 		registerService.save(userForm);
-//		registerService.autoLogin(userForm.getUsername(), (passwordEncoder.encode(userForm.getPassword())));
+		registerService.autoLogin(userForm.getUsername(), (passwordEncoder.encode(userForm.getPassword())));
 		return "redirect:home";
 	}
 	

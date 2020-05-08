@@ -2,6 +2,7 @@ package com.tracker.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.tracker.service.RegisterService;
@@ -14,8 +15,7 @@ public class HomeController {
 	
 	@RequestMapping("home")
 	public String home(HttpServletRequest request){
-		String activeUser = registerService.findLoggedInUsername();
-		System.out.println(activeUser);
+		UserDetails activeUser = registerService.findLoggedInUsername();
 		request.setAttribute("username", activeUser);
 		
 		return "home/home";

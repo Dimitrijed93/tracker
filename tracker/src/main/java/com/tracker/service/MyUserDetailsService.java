@@ -21,10 +21,10 @@ public class MyUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Users user = dao.findByUsername(username);
-		if(user==null)
+		if(user==null) {
 			throw new UsernameNotFoundException("User not found");
 		
-			
+	}
 		return new UserMeth(user);
 	}
 	
