@@ -61,7 +61,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form data-parsley-validate=""  id="contactForm" method="POST" action="save-skill" role="form">
+					<form data-parsley-validate="" id="contactForm" onsubmit="alert('Changes successfully saved.')" method="POST" action="save-skill" role="form">
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
 								<label for="id" hidden="true">Id</label> 
@@ -96,7 +96,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm"  action="delete-skill" method="POST" name="contact" role="form">
+					<form id="contactForm"  action="delete-skill" onsubmit="alert('Skill successfully deleted.')" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
 							<h3> ${skill.name}</h3>
