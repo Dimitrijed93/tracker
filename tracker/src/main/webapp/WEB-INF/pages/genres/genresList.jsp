@@ -104,7 +104,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" action="delete-genre" method="POST" name="contact" role="form">
+					<form id="contactForm" action="delete-genre" onsubmit="alert('Genre successfully deleted.')" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following genre?</p>
 							

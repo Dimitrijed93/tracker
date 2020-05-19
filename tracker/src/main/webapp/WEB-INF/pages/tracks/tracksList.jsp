@@ -103,7 +103,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Genre delete</h5>
+					<h5 class="modal-title">Track delete</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -112,7 +112,7 @@
 				<form id="contactForm" onsubmit="alert('Track successfully deleted.')" method="POST" action="delete-track"
 					name="contact" role="form">
 					<div class="modal-body">
-						<p>Are you sure you want to delete the following genre?</p>
+						<p>Are you sure you want to delete the following track?</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"

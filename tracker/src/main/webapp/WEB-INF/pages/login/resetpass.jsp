@@ -23,6 +23,7 @@
 	<h6 class="logoutTxt"> to reset your password.</h6>
 	<hr>
 		<form class="contactForm" onsubmit="alert('Please check your email and follow the instructions to change your password.')" id="contactForm" method="POST" action= "" role="form">
+
 			<div class="modal-body">
 				<div class="form-group">
 					<label for="username">Email address:</label> 
@@ -38,21 +39,17 @@
 	</div>
 	
 <script>
-
 $(document).ready(function(){
 	
-	$('.subBtn').on('click', function(){
+	$('#resetPass').on('click', function(){
 		var mail = $('#email').val();
 		console.log(mail);
 		$.ajax({
 			type:'POST',
-			url:"reset-password/" + mail,
-			success: function(){
-				alert("Please check your email !");
-				}
+			url:"reset-password/" + mail
 			});
-			
-	})
+	});
+
  });
 
 </script>
