@@ -1,24 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">	
 	<link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
-	<link rel="stylesheet"  href="../../tracker/css/style.css">
+	<link rel="stylesheet"  href="../../../../tracker/css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
-	<script src="../../tracker/js/parsley.min.js"></script>	
-	<link rel="stylesheet"  href="../../tracker/css/parsley.css">
+	<script src="../../../../tracker/js/parsley.min.js"></script>	
+	<link rel="stylesheet"  href="../../../../tracker/css/parsley.css">
 	<title>Reset password</title>
 </head>
 <body>
 	<div class="regDiv">
 		<h2>Update your password!</h2>
 		<hr>
-		<form data-parsley-validate="" class="contactForm" id="contactForm" method="POST" action="save-user" role="form">
+		<form data-parsley-validate="" class="contactForm" id="contactForm" method="POST" action="/save-user" role="form">
 			<div class="modal-body">
 				<div class="form-group">
 					<label hidden="true" for="id">id:</label> 
@@ -88,18 +87,20 @@
 		$(document).ready(function(){
 			var url = window.location.href;
 			var id = url.substring(url.lastIndexOf('/') + 1);
-			console.log(id);
+			var pass = url.substring(url.lastIndexOf('/') -61, url.lastIndexOf('/')+1 );
+// 			console.log(pass);
+// 			console.log(id);
 				$.ajax({
 					type:'GET',
-					url:"users/" + id,
-					success: function(us){
-						$('#id').val(us.id);
-						$('#username').val(us.username);
-						$('#password').val(us.password);
-						$('#firstname').val(us.firstname);
-						$('#lastname').val(us.lastname);
-						$('#dateofbirth').val(us.dateofbirth);
-						$('#email').val(us.email);
+					url:"/users/" + id,
+					success: function(user){
+						$('#id').val(user.id);
+						$('#username').val(user.username);
+						$('#password').val(user.password);
+						$('#firstname').val(user.firstname);
+						$('#lastname').val(user.lastname);
+						$('#dateofbirth').val(user.dateofbirth);
+						$('#email').val(user.email);
 						}
 					});
 		 });

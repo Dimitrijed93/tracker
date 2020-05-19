@@ -38,6 +38,7 @@ public class HomeController {
 	
 	@RequestMapping("/resetpass")
 	public String resetpass() {
+		
 		return "login/resetpass";
 	}
 	

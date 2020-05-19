@@ -77,8 +77,8 @@ public class RegisterController {
 			return "login/login";
 	}
 	
-	@RequestMapping("/reset-password2/{password}/{id}")
-	public String resetpas(@PathVariable String password ){
+	@RequestMapping("/reset-password2/**")
+	public String resetpas(){
 	
 		return "login/resetpass2";
 	}
