@@ -96,7 +96,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm"  action="delete-skill" method="POST" name="contact" role="form">
+					<form id="contactForm"  onsubmit="alert('Changes successfully saved.')"   action="delete-skill" method="POST" name="contact" role="form">
 						<div class="modal-body">
 							<p>Are you sure you want to delete the following skill?</p>
 							<h3> ${skill.name}</h3>

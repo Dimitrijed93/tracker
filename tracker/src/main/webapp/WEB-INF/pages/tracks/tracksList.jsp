@@ -66,7 +66,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="contactForm" method="POST" action="save-track" data-parsley-validate="">
+				<form id="contactForm" onsubmit="alert('Changes successfully saved.')" method="POST" action="save-track" data-parsley-validate="">
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="id" hidden="true">Id</label> 
@@ -109,7 +109,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="contactForm" method="POST" action="delete-track"
+				<form id="contactForm" onsubmit="alert('Track successfully deleted.')" method="POST" action="delete-track"
 					name="contact" role="form">
 					<div class="modal-body">
 						<p>Are you sure you want to delete the following genre?</p>

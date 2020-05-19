@@ -65,7 +65,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<form id="contactForm" method="POST" action="save-genre" role="form" data-parsley-validate="" >
+					<form id="contactForm" onsubmit="alert('Changes successfully saved.')" method="POST" action="save-genre" role="form" data-parsley-validate="" >
 						<div class="modal-body">
 							<div class="form-group" hidden="true">
 								<label for="id" hidden="true">Id</label> 
